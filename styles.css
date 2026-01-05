@@ -1,15 +1,30 @@
 :root {
-    --azul-turquesa: '#026E81';
-    --azul-turquesa-claro: '#00ABBD';
-    --azul: '#0099DD';
-    --laranja: '#FF9933';
-    --azul-claro: '#A1C7E0';
+    --azul-turquesa: #026E81;
+    --azul-turquesa-claro: #00ABBD;
+    --azul: #0099DD;
+    --laranja: #FF9933;
+    --azul-claro: #A1C7E0;
+    --preto-titulo: #242424;
+    --fundo-cinza: #F0F0F0;
     --fonte-principal: 'Poppins', sans-serif;
     --fonte-secundaria: 'Roboto', sans-serif;
 }
 
 body {
     font-family: var(--fonte-secundaria);
+    font-size: 20px;
+    margin: 1em;
+    color: var(--preto-titulo);
+    background-color: var(--fundo-cinza);
+}
+
+h3{
+    font-size: 26px;
+}
+
+h2{
+    font-size: 32px;
+    padding: 1em;;
 }
 
 * {
@@ -20,11 +35,11 @@ body {
 }
 
 .conteudo-home img {
-    width: 100vw;
+    width: 100%;
 }
 
 .projetos-lista {
-    width: 100vw;
+    width: 100%;
 }
 
 .projetos-lista li img {
@@ -32,13 +47,122 @@ body {
 }
 
 .home-titulo {
-    font-size: 28px;
     text-align: center;
     padding: 1em;
 }
 
+.cabecalho-lista {
+    display: none;
+    gap: 20px;
+}
+
+.projetos-lista{
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    list-style-type: none;
+    gap: 1em;
+}
+
+.projetos-lista li{
+    grid-column: span 12;
+
+}
+
+.conteudo-projetos {
+    text-align: center
+}
+
+.lista-habilidades{
+    list-style-type: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.lista-habilidades li{
+    background-color: var(--azul-claro);
+    padding: 1em;
+    border-radius: 1em;
+}
+
+.lista-habilidades li h3{
+    padding-top: 1em;
+    padding-bottom: 0.5em;
+}
+
+.conteudo-habilidades h2{
+    text-align: center;
+}
+
+
 @media screen and (min-width: 720px) {
     .conteudo-home img {
         width: 100%
+    }
+
+    .cabecalho-lista {
+        display: flex;
+        gap: 1em;
+        list-style-type: none;
+    }
+
+    .cabecalho-lista li a {
+        text-decoration: none;
+    }
+
+    header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1em 2em;
+    }
+
+    .conteudo-home{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .conteudo-home img{
+        width: 500px;
+        height: 700px;
+
+        /* vai adaptar a imagem de acordo com o tamanho definido */
+        object-fit: cover;
+    }
+
+    /* cada um esta ocupando 3 colunas com grid-column: span 3; */
+
+    /* tudo isso para centrazar as imagens */
+    /* no primeiro item vai comecar na 2 coluna e vai ocupar 3 colunas */
+    .projetos-lista li:nth-child(1){
+        grid-column: 2 / span 3;
+    }
+
+    /* no segundo item vai comecar na 5 coluna e vai ocupar 3 colunas */
+    .projetos-lista li:nth-child(2){
+        grid-column: 5 / span 4;
+    }
+
+    /* no terceiro item vai comecar na 8 coluna e vai ocupar 3 colunas */
+    .projetos-lista li:nth-child(3){
+        grid-column: 9 / span 3;
+    }
+
+    .projetos-lista li img {
+        height: 300px;
+        object-fit: cover;
+    }
+
+    .lista-habilidades{
+        flex-direction: row;
+    }
+
+    .lista-habilidades li{
+        height: 300px;
+
+        /* define o tamanho do item no flexbox */
+        flex: 1;
     }
 }
